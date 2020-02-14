@@ -121,22 +121,26 @@ div.slide div.content {
     list-style-type: none;
   }
 
-  ul.conlang li {
+  ul.conlang >li {
     font-size: 1rem;
   }
 
-  ul.conlang li ul {
+  ul.conlang >li:nth-child(n+2) {
+    margin: 0.6rem 0rem 0rem 0rem;
+  }
+
+  ul.conlang >li >ul {
     margin: 0.4rem 0rem 0rem 0rem;
     padding: 0rem 0rem 0rem 0.3rem;
     list-style-type: none;
   }
 
-  ul.conlang li ul li {
+  ul.conlang >li >ul >li {
     margin-left: 0.5rem;
     font-size: 0.7rem;
   }
 
-  ul.conlang li ul li::before {
+  ul.conlang >li >ul >li::before {
     width: 0.5rem;
     margin: 0rem 0rem 0rem -0.5rem;
     font-family: "IPA P明朝";
