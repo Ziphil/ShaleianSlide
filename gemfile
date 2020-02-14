@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+
+gem 'bundler', require: [
+  'fileutils',
+  'open3',
+  'pp',
+  'rexml/document'
+]
+
+gem 'sassc'
+gem 'selenium-webdriver'
+gem 'parallel'
+gem 'zenml'

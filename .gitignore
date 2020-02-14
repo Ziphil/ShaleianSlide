@@ -1,0 +1,7 @@
+log
+out
+node_modules
+*.code-workspace
+.vscode
+desktop.ini
+Thumbs.db

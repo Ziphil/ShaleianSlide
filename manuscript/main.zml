@@ -1,0 +1,43 @@
+\zml?|version="1.0"|>
+\xml?|version="1.0",encoding="UTF-8"|>
+
+\root|number="6"|<
+
+  \slide|number="4",repeat="3"|<
+    \large<
+      \em|color="blue"|<動詞>が先頭
+    >
+    \xl|range="2-"|<
+      \li<
+        \sh<
+          \ver|color="blue"|<\ab<動詞>\bx<{sôdes}>\bl<食べた>>
+          \ver|color="green"|<\ab<副詞>\bx<{otîv}>\bl<素早く>>
+          \ver|color="orange"|<\ab<助詞句>\bx<{a ces}>\bl<彼は>>
+          \ver|color="orange"|<\ab<助詞句>\bx<{e sakil}>\bl<リンゴを>>{.}
+        >
+        \ja|range="3-"|<彼は素早くリンゴを食べた。>
+      >
+    >
+  >
+
+  \slide|number="8",repeat="2"|<
+    \xl<
+      \li<
+        \sh<
+          {lices}
+          \ver|color="blue"|<\ab<助詞句>\bx<{a tel}>\bl<私は>>
+          \ver|color="blue"|<\ab<助詞句>\bx<{e nát}>\bl<花を>>{.}
+        >
+        \ja<私は花を見た。>
+      >
+      \li|range="2-"|<
+        \sh<
+          {séqes a tel e sokiq}
+          \ver|color="blue"|<\ab<助詞句>\bx<{ca ces}>\bl<彼に>>{.}
+        >
+        \ja<私は腕時計を彼にあげた。>
+      >
+    >
+  >
+
+>
