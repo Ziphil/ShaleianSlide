@@ -15,6 +15,19 @@ Encoding.default_external = "UTF-8"
 $stdout.sync = true
 
 
+class SlideConverter < ZenithalConverter
+
+  attr_reader :document
+  attr_reader :variables
+
+  def initialize(document)
+    super(document, :text)
+    @variables = {}
+  end
+
+end
+
+
 class WholeSlideConverter
 
   OUTPUT_DIR = "out"
@@ -51,12 +64,15 @@ class WholeSlideConverter
     extension = File.extname(path).gsub(/^\./, "")
     output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR)
     output_path = modify_extension(output_path)
+    count_output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
     case extension
     when "zml"
       parser = create_parser(path)
       converter = create_converter(parser.run)
       output = converter.convert
+      count_output = converter.variables[:slide_count].to_s
       File.write(output_path, output)
+      File.write(count_output_path, count_output)
     when "scss"
       option = {}
       option[:style] = :expanded
@@ -74,6 +90,7 @@ class WholeSlideConverter
       driver = WebDriver.for(:chrome, options: options)
       driver.navigate.to("file:///#{BASE_PATH}/out/main.html")
       driver.manage.window.resize_to(1008, 567)
+      driver.execute_script("document.body.classList.add('simple');")
       driver.execute_script("document.querySelectorAll('.slide')[#{count}].scrollIntoView();")
       driver.save_screenshot("out_#{count}.png")
       driver.quit
@@ -116,7 +133,7 @@ class WholeSlideConverter
   end
 
   def create_converter(document)
-    converter = ZenithalConverter.new(document, :text)
+    converter = SlideConverter.new(document)
     Dir.each_child(TEMPLATE_DIR) do |entry|
       if entry.end_with?(".rb")
         binding = TOPLEVEL_BINDING
