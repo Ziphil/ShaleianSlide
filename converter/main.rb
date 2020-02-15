@@ -18,25 +18,38 @@ $stdout.sync = true
 class WholeSlideConverter
 
   OUTPUT_DIR = "out"
-  MANUSCRIPT_DIR = "manuscript"
+  DOCUMENT_DIR = "document"
   TEMPLATE_DIR = "template"
 
   def initialize(args)
-    options, rest_args = args.partition{|s| s =~ /^\-\w+$/}
+    options, rest_args = args.partition{|s| s =~ /^\-\w$/}
+    if options.include?("-i")
+      @mode = :image
+    else
+      @mode = :normal
+    end
+    @rest_args = rest_args
+    @paths = create_paths
   end
 
   def execute
-    execute_normal
+    case @mode
+    when :image
+      execute_image
+    when :normal
+      execute_normal
+    end
   end
 
   def execute_normal
-    convert_normal(File.join(MANUSCRIPT_DIR, "main.zml"))
-    convert_normal(File.join(MANUSCRIPT_DIR, "style.scss"))
+    @paths.each_with_index do |path, index|
+      convert_normal(path)
+    end
   end
 
   def convert_normal(path)
     extension = File.extname(path).gsub(/^\./, "")
-    output_path = path.gsub(MANUSCRIPT_DIR, OUTPUT_DIR)
+    output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR)
     output_path = modify_extension(output_path)
     case extension
     when "zml"
@@ -67,6 +80,23 @@ class WholeSlideConverter
     end
   end
 
+  def create_paths
+    paths = []
+    if @rest_args.empty?
+      dirs = []
+      dirs << File.join(DOCUMENT_DIR, "manuscript")
+      dirs << File.join(DOCUMENT_DIR, "style")
+      dirs.each do |dir|
+        Dir.each_child(dir) do |entry|
+          if entry =~ /\.\w+$/
+            paths << File.join(dir, entry)
+          end
+        end
+      end
+    end
+    return paths
+  end
+
   def create_parser(path, main = true)
     source = File.read(path)
     parser = ZenithalParser.new(source)
@@ -76,7 +106,7 @@ class WholeSlideConverter
     if main
       parser.register_macro("import") do |attributes, _|
         import_path = attributes["src"]
-        import_parser = create_parser(File.join(MANUSCRIPT_DIR, import_path), false)
+        import_parser = create_parser(File.join(DOCUMENT_DIR, import_path), false)
         document = import_parser.parse
         import_nodes = (attributes["expand"]) ? document.root.children : [document.root]
         next import_nodes
