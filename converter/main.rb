@@ -113,7 +113,7 @@ class WholeSlideConverter
     if @rest_args.empty?
       dirs = []
       dirs << File.join(DOCUMENT_DIR, "slide")
-      dirs << File.join(DOCUMENT_DIR, "style") if @mode == :normal
+      dirs << File.join(DOCUMENT_DIR, "asset") if @mode == :normal
       dirs.each do |dir|
         Dir.each_child(dir) do |entry|
           if entry =~ /\.\w+$/
