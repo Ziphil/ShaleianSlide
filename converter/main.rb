@@ -84,7 +84,7 @@ class WholeSlideConverter
     paths = []
     if @rest_args.empty?
       dirs = []
-      dirs << File.join(DOCUMENT_DIR, "manuscript")
+      dirs << File.join(DOCUMENT_DIR, "slide")
       dirs << File.join(DOCUMENT_DIR, "style")
       dirs.each do |dir|
         Dir.each_child(dir) do |entry|
