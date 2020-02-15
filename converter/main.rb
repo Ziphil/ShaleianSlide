@@ -60,19 +60,25 @@ class WholeSlideConverter
     end
   end
 
+  def execute_image
+    @paths.each_with_index do |path, index|
+      convert_image(path)
+    end
+  end
+
   def convert_normal(path)
     extension = File.extname(path).gsub(/^\./, "")
     output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR)
     output_path = modify_extension(output_path)
-    count_output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
+    count_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
     case extension
     when "zml"
       parser = create_parser(path)
       converter = create_converter(parser.run)
       output = converter.convert
-      count_output = converter.variables[:slide_count].to_s
+      count = converter.variables[:slide_count].to_s
       File.write(output_path, output)
-      File.write(count_output_path, count_output)
+      File.write(count_path, count)
     when "scss"
       option = {}
       option[:style] = :expanded
@@ -82,17 +88,21 @@ class WholeSlideConverter
     end
   end
 
-  def convert_screenshot(path)
-    size = 8
+  def convert_image(path)
+    page_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR)
+    page_path = modify_extension(page_path)
+    output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", "")
+    count_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
+    count = File.read(count_path).to_i
     options = WebDriver::Chrome::Options.new
     options.add_argument("--headless")
-    Parallel.each(0...size, in_threads: size) do |count|
+    Parallel.each(0...count, in_threads: count) do |index|
       driver = WebDriver.for(:chrome, options: options)
-      driver.navigate.to("file:///#{BASE_PATH}/out/main.html")
+      driver.navigate.to("file:///#{BASE_PATH}/#{page_path}")
       driver.manage.window.resize_to(1008, 567)
       driver.execute_script("document.body.classList.add('simple');")
-      driver.execute_script("document.querySelectorAll('.slide')[#{count}].scrollIntoView();")
-      driver.save_screenshot("out_#{count}.png")
+      driver.execute_script("document.querySelectorAll('.slide')[#{index}].scrollIntoView();")
+      driver.save_screenshot("#{output_path}-#{index}.png")
       driver.quit
     end
   end
