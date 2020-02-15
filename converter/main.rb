@@ -85,6 +85,9 @@ class WholeSlideConverter
       option[:filename] = path
       output = SassC::Engine.new(File.read(path), option).render
       File.write(output_path, output)
+    when "js"
+      output = File.read(path)
+      File.write(output_path, output)
     end
   end
 
