@@ -100,7 +100,7 @@ class WholeSlideConverter
     Parallel.each(0...count, in_threads: count) do |index|
       driver = WebDriver.for(:chrome, options: options)
       driver.navigate.to("file:///#{BASE_PATH}/#{page_path}")
-      driver.manage.window.resize_to(1008, 567)
+      driver.manage.window.resize_to(1920, 1080)
       driver.execute_script("document.body.classList.add('simple');")
       driver.execute_script("document.querySelectorAll('.slide')[#{index}].scrollIntoView();")
       driver.save_screenshot("#{output_path}-#{index}.png")
