@@ -96,6 +96,7 @@ class WholeSlideConverter
     count = File.read(count_path).to_i
     options = WebDriver::Chrome::Options.new
     options.add_argument("--headless")
+    options.add_option("excludeSwitches", ["enable-logging"])
     Parallel.each(0...count, in_threads: count) do |index|
       driver = WebDriver.for(:chrome, options: options)
       driver.navigate.to("file:///#{BASE_PATH}/#{page_path}")
