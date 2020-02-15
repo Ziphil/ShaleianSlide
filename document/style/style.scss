@@ -1,9 +1,10 @@
 @charset "utf-8";
 
 
-html {
-  font-size: 42px;
+@function len($amount) {
+  @return 7.2vh * $amount;   
 }
+
 
 body {
   margin: 0px;
@@ -11,32 +12,25 @@ body {
   font-family: "Times New Roman", "IPA P明朝";
   font-feature-settings: "palt" 1, "pkna" 1;
   line-height: 1;
-}
-
-body.simple {
+  background-color: black;
   overflow: hidden;
 }
 
 
 div.slide {
-  width: 1.5rem * 16;
-  height: 1.5rem * 9;
-  margin: 1rem auto;
+  width: 100vh * 16 / 9;
+  height: 100vh;
+  margin: 0px auto;
   padding: 0px;
-  border: 1px hsl(0, 0%, 0%) solid;
+  background-color: white;
   position: relative;
   overflow: hidden;
 
-  body.simple & {
-    margin: 0rem;
-    border: none;
-  }
-
   div.number {
-    width: 5rem;
-    height: 5rem;
-    top: 0.4rem;
-    left: -5rem * 1.4142 / 2;
+    width: len(5);
+    height: len(5);
+    top: len(0.4);
+    left: len(5) * -1.4142 / 2;
     transform: rotate(-45deg);
     transform-origin: top left;
     background-color: hsl(205, 100%, 60%);
@@ -44,43 +38,43 @@ div.slide {
     align-items: flex-end;
     position: absolute;
     display: flex;
-    z-index: -1;
+    z-index: 1;
   }
 
   div.number span.section {
-    margin: 0rem 0.3em -0.2em 0rem;
+    margin: 0em 0.3em -0.2em 0em;
     font-family: "Clarendon Cn BT";
-    font-size: 1rem;
+    font-size: len(1);
     letter-spacing: -0.1em;
     color: white;
   }
 
   div.number span.subsection {
-    margin: 0rem 0rem -0.2em 0rem;
+    margin: 0em 0em -0.2em 0em;
     font-family: "Clarendon Cn BT";
-    font-size: 2rem;
+    font-size: len(2);
     letter-spacing: -0.1em;
     color: white;
   }
 
   div.header {
     width: 100%;
-    height: 0.8rem;
-    top: 0rem;
-    left: 0rem;
+    height: len(0.8);
+    top: len(0);
+    left: len(0);
     background-color: hsl(205, 100%, 60%);
     position: absolute;
-    z-index: -2;
+    z-index: 0;
   }
 
   div.footer {
     width: 100%;
-    height: 0.8rem;
-    bottom: 0rem;
-    left: 0rem;
+    height: len(0.8);
+    bottom: len(0);
+    left: len(0);
     background-color: hsl(35, 100%, 60%);
     position: absolute;
-    z-index: -2;
+    z-index: 0;
   }
 
 }
@@ -89,7 +83,7 @@ div.slide {
 div.slide div.content {
   width: 100%;
   height: 100%;
-  padding: 1rem 0rem;
+  padding: len(1) len(0);
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -99,7 +93,7 @@ div.slide div.content {
   // 基本文字
 
   div.large {
-    font-size: 1.2rem;
+    font-size: len(1.2);
     letter-spacing: 0.1em;
   }
 
@@ -116,33 +110,33 @@ div.slide div.content {
   // 例文の箇条書き
 
   ul.conlang {
-    margin: 0rem;
-    padding: 0rem;
+    margin: len(0);
+    padding: len(0);
     list-style-type: none;
   }
 
   ul.conlang >li {
-    font-size: 1rem;
+    font-size: len(1);
   }
 
   ul.conlang >li:nth-child(n+2) {
-    margin: 0.6rem 0rem 0rem 0rem;
+    margin: len(0.6) len(0) len(0) len(0);
   }
 
   ul.conlang >li >ul {
-    margin: 0.4rem 0rem 0rem 0rem;
-    padding: 0rem 0rem 0rem 0.3rem;
+    margin: len(0.4) len(0) len(0) len(0);
+    padding: len(0) len(0) len(0) len(0.3);
     list-style-type: none;
   }
 
   ul.conlang >li >ul >li {
-    margin-left: 0.5rem;
-    font-size: 0.7rem;
+    margin-left: len(0.5);
+    font-size: len(0.7);
   }
 
   ul.conlang >li >ul >li::before {
-    width: 0.5rem;
-    margin: 0rem 0rem 0rem -0.5rem;
+    width: len(0.5);
+    margin: len(0) len(0) len(0) len(-0.5);
     font-family: "IPA P明朝";
     font-size: 80%;
     color: hsl(0, 0%, 50%);
@@ -161,8 +155,8 @@ div.slide div.content {
   }
 
   span.vertical span.above {
-    margin: 0rem 0rem 0.1rem 0rem;
-    font-size: 0.5rem;
+    margin: len(0) len(0) len(0.1) len(0);
+    font-size: len(0.5);
     text-align: center;
     display: block;
   }
@@ -180,8 +174,8 @@ div.slide div.content {
   }
 
   span.vertical span.below {
-    margin: 0.1rem 0rem 0rem 0rem;
-    font-size: 0.6rem;
+    margin: len(0.1) len(0) len(0) len(0);
+    font-size: len(0.6);
     text-align: center;
     display: block;
   }
