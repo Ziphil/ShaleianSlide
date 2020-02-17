@@ -15,19 +15,6 @@ Encoding.default_external = "UTF-8"
 $stdout.sync = true
 
 
-class SlideConverter < ZenithalConverter
-
-  attr_reader :document
-  attr_reader :variables
-
-  def initialize(document)
-    super(document, :text)
-    @variables = {}
-  end
-
-end
-
-
 class WholeSlideConverter
 
   OUTPUT_DIR = "out"
@@ -147,7 +134,7 @@ class WholeSlideConverter
   end
 
   def create_converter(document)
-    converter = SlideConverter.new(document)
+    converter = ZenithalConverter.new(document, :text)
     Dir.each_child(TEMPLATE_DIR) do |entry|
       if entry.end_with?(".rb")
         binding = TOPLEVEL_BINDING
