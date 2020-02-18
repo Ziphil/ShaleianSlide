@@ -55,13 +55,12 @@ class WholeSlideConverter
 
   def convert_normal(path)
     extension = File.extname(path).gsub(/^\./, "")
-    output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR)
-    output_path = modify_extension(output_path)
+    output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).then(&method(:modify_extension))
     count_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
     case extension
     when "zml"
-      parser = create_parser(path)
-      converter = create_converter(parser.run)
+      parser = create_parser.tap{|s| s.update(File.read(path))}
+      converter = create_converter.tap{|s| s.update(parser.run)}
       output = converter.convert
       count = converter.variables[:slide_count].to_s
       File.write(output_path, output)
@@ -79,8 +78,7 @@ class WholeSlideConverter
   end
 
   def convert_image(path)
-    page_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR)
-    page_path = modify_extension(page_path)
+    page_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).then(&method(:modify_extension))
     output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", "")
     count_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
     count = File.read(count_path).to_i
@@ -115,17 +113,17 @@ class WholeSlideConverter
     return paths
   end
 
-  def create_parser(path, main = true)
-    source = File.read(path)
-    parser = ZenithalParser.new(source)
+  def create_parser(main = true)
+    parser = ZenithalParser.new("")
     parser.brace_name = "x"
     parser.bracket_name = "xn"
     parser.slash_name = "i"
     if main
       parser.register_macro("import") do |attributes, _|
         import_path = attributes["src"]
-        import_parser = create_parser(File.join(DOCUMENT_DIR, import_path), false)
-        document = import_parser.parse
+        import_parser = create_parser(false)
+        import_parser.update(File.read(File.join(DOCUMENT_DIR, import_path)))
+        document = import_parser.run
         import_nodes = (attributes["expand"]) ? document.root.children : [document.root]
         next import_nodes
       end
@@ -133,8 +131,8 @@ class WholeSlideConverter
     return parser
   end
 
-  def create_converter(document)
-    converter = ZenithalConverter.new(document, :text)
+  def create_converter
+    converter = ZenithalConverter.new(nil, :text)
     Dir.each_child(TEMPLATE_DIR) do |entry|
       if entry.end_with?(".rb")
         binding = TOPLEVEL_BINDING
