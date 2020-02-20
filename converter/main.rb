@@ -21,6 +21,9 @@ class WholeSlideConverter
   DOCUMENT_DIR = "document"
   TEMPLATE_DIR = "template"
 
+  THREAD_COUNT = 10
+  IMAGE_SIZE = [1920, 1080]
+
   def initialize(args)
     options, rest_args = args.partition{|s| s =~ /^\-\w$/}
     if options.include?("-i")
@@ -88,10 +91,10 @@ class WholeSlideConverter
     options = WebDriver::Chrome::Options.new
     options.add_argument("--headless")
     options.add_option("excludeSwitches", ["enable-logging"])
-    Parallel.each(0...count, in_threads: count) do |index|
+    Parallel.each(0...count, in_threads: THREAD_COUNT) do |index|
       driver = WebDriver.for(:chrome, options: options)
       driver.navigate.to("file:///#{BASE_PATH}/#{page_path}")
-      driver.manage.window.resize_to(1920, 1080)
+      driver.manage.window.resize_to(*IMAGE_SIZE)
       driver.execute_script("document.body.classList.add('simple');")
       driver.execute_script("document.querySelectorAll('.slide')[#{index}].scrollIntoView();")
       driver.save_screenshot("#{output_path}-#{index}.png")
