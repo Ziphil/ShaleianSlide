@@ -30,6 +30,8 @@ class WholeSlideConverter
     end
     @rest_args = rest_args
     @paths = create_paths
+    @parser = create_parser
+    @converter = create_converter
   end
 
   def execute
@@ -59,10 +61,11 @@ class WholeSlideConverter
     count_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
     case extension
     when "zml"
-      parser = create_parser.tap{|s| s.update(File.read(path))}
-      converter = create_converter.tap{|s| s.update(parser.run)}
-      output = converter.convert
-      count = converter.variables[:slide_count].to_s
+      @parser.update(File.read(path))
+      document = @parser.run
+      @converter.update(document)
+      output = @converter.convert
+      count = @converter.variables[:slide_count].to_i.to_s
       File.write(output_path, output)
       File.write(count_path, count)
     when "scss"

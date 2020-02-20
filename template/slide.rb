@@ -1,14 +1,12 @@
 # coding: utf-8
 
 
-converter.variables[:slide_count] = 0
-
 converter.add(["slide"], ["root"]) do |element, _, number|
   this = ""
   repeat = element.attribute("repeat").to_s.to_i
   slide_number = element.attribute("number").to_s.to_i
   repeat.times do |count|
-    converter.variables[:slide_count] += 1
+    variables[:slide_count] = variables[:slide_count].to_i + 1
     this << Tag.build("div", "slide") do |this|
       this << Tag.build("div", "number") do |this|
         this << Tag.build("span", "section") do |this|
