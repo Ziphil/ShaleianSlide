@@ -1,6 +1,8 @@
 # coding: utf-8
 
 
+COLORS = {1 => "blue", 2 => "orange", 3 => "pink", 4 => "green"}
+
 converter.add(["slide"], ["root"]) do |element, _, number|
   this = ""
   repeat = element.attribute("repeat").to_s.to_i
@@ -63,18 +65,23 @@ end
 
 converter.add(["ver"], ["root"]) do |element, _, count|
   this = ""
-  color = element.attribute("color")&.to_s || "blue"
+  color_index = element.attribute("color")&.to_s&.to_i || 1
+  color = COLORS[color_index]
   this << Tag.build("span", "vertical") do |this|
     this.apply_count(element, count)
-    this["class"] << " #{color}"
     this << Tag.build("span", "above") do |this|
+      this["class"] << " #{color}"
       this << apply(element.get_elements("ab").first, "root", count)
     end
-    this << Tag.build("span", "box-wrapper") do |this|
-      this << Tag.build("span", "box") do |this|
-        this << apply(element.get_elements("bx").first, "root", count)
+    this << Tag.build("span", "below-wrapper") do |this|
+      this << Tag.build("span", "center") do |this|
+        this << Tag.build("span", "box") do |this|
+          this["class"] << " #{color}"
+          this << apply(element.get_elements("bx").first, "root", count)
+        end
       end
       this << Tag.build("span", "below") do |this|
+        this["class"] << " #{color}"
         this << apply(element.get_elements("bl").first, "root", count)
       end
     end
@@ -93,7 +100,8 @@ end
 
 converter.add(["em"], ["root"]) do |element, _, count|
   this = ""
-  color = element.attribute("color")&.to_s || "blue"
+  color_index = element.attribute("color")&.to_s&.to_i || 1
+  color = COLORS[color_index]
   this << Tag.build("span", "emphasis") do |this|
     this.apply_count(element, count)
     this["class"] << " #{color}"
