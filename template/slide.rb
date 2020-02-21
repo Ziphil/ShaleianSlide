@@ -63,6 +63,42 @@ converter.add(["ja"], ["root.xl.li"]) do |element, _, count|
   next this
 end
 
+converter.add(["table"], ["root"]) do |element, scope|
+  this = ""
+  this << Tag.build("table") do |this|
+    this << apply(element, "root.table")
+  end
+  next this
+end
+
+converter.add(["tr"], ["root.table"]) do |element|
+  this = ""
+  this << Tag.build("tr") do |this|
+    this << apply(element, "root.table.tr")
+  end
+  next this
+end
+
+converter.add(["th", "td"], ["root.table.tr"]) do |element|
+  this = ""
+  this << Tag.build do |this|
+    case element.name
+    when "th"
+      this.name = "th"
+    when "td"
+      this.name = "td"
+    end
+    if element.attribute("row")
+      this["rowspan"] = element.attribute("row").to_s
+    end
+    if element.attribute("col")
+      this["colspan"] = element.attribute("col").to_s
+    end
+    this << apply(element, "root")
+  end
+  next this
+end
+
 converter.add(["ver"], ["root"]) do |element, _, count|
   this = ""
   color_index = element.attribute("color")&.to_s&.to_i || 1

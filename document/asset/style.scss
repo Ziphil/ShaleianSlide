@@ -221,6 +221,65 @@ div.slide div.content {
     display: inline-block;
   }
 
+  // 表
+
+  $table-border-color: hsl(0, 0%, 70%);
+  $table-border-radius: 0.1em;
+
+  table {
+    margin: len(0);
+    padding: len(0);
+    border-collapse: separate;
+    border-spacing: len(0);
+    border-radius: $table-border-radius;
+    white-space: nowrap;
+  }
+
+  table tr th,
+  table tr td {
+    margin: len(0);
+    padding: len(0.2) len(0.6);
+    font-size: len(0.8);
+    font-weight: normal;
+    text-align: center;
+    border-bottom: 0.05em $table-border-color solid;
+    border-right: 0.05em $table-border-color solid;
+  }
+
+  table tr th {
+    background: $table-border-color;
+  }
+
+  table tr:first-child th, 
+  table tr:first-child td {
+    border-top: 0.05em $table-border-color solid;
+  }
+
+  table tr th:first-child, 
+  table tr td:first-child {
+    border-left: 0.05em $table-border-color solid;
+  }
+
+  table tr:first-child th:first-child,
+  table tr:first-child td:first-child {
+    border-top-left-radius: $table-border-radius;
+  }
+
+  table tr:first-child th:last-child,
+  table tr:first-child td:last-child {
+    border-top-right-radius: $table-border-radius;
+  }
+
+  table tr:last-child th:first-child,
+  table tr:last-child td:first-child {
+    border-bottom-left-radius: $table-border-radius;
+  }
+
+  table tr:last-child th:last-child,
+  table tr:last-child td:last-child {
+    border-bottom-right-radius: $table-border-radius;
+  }
+
 }
 
 
