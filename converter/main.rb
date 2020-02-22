@@ -35,6 +35,7 @@ class WholeSlideConverter
     @paths = create_paths
     @parser = create_parser
     @converter = create_converter
+    @driver = create_driver
   end
 
   def execute
@@ -56,6 +57,7 @@ class WholeSlideConverter
     @paths.each_with_index do |path, index|
       convert_image(path)
     end
+    @driver.quit
   end
 
   def convert_normal(path)
@@ -91,18 +93,15 @@ class WholeSlideConverter
     page_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).then(&method(:modify_extension))
     output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", "")
     count_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
+    output_dir = File.dirname(output_path)
     count = File.read(count_path).to_i
-    options = WebDriver::Chrome::Options.new
-    options.add_argument("--headless")
-    options.add_option("excludeSwitches", ["enable-logging"])
-    Parallel.each(0...count, in_threads: THREAD_COUNT) do |index|
-      driver = WebDriver.for(:chrome, options: options)
-      driver.navigate.to("file:///#{BASE_PATH}/#{page_path}")
-      driver.manage.window.resize_to(*IMAGE_SIZE)
-      driver.execute_script("document.body.classList.add('simple');")
-      driver.execute_script("document.querySelectorAll('.slide')[#{index}].scrollIntoView();")
-      driver.save_screenshot("#{output_path}-#{index}.png")
-      driver.quit
+    FileUtils.mkdir_p(output_dir)
+    @driver.navigate.to("file:///#{page_path}")
+    @driver.manage.window.resize_to(*IMAGE_SIZE)
+    @driver.execute_script("document.body.classList.add('simple');")
+    count.times do |index|
+      @driver.execute_script("document.querySelectorAll('.slide')[#{index}].scrollIntoView();")
+      @driver.save_screenshot("#{output_path}-#{index}.png")
     end
   end
 
@@ -110,8 +109,8 @@ class WholeSlideConverter
     paths = []
     if @rest_args.empty?
       dirs = []
-      dirs << File.join(DOCUMENT_DIR, "slide")
-      dirs << File.join(DOCUMENT_DIR, "asset") if @mode == :normal
+      dirs << File.join(BASE_PATH, DOCUMENT_DIR, "slide")
+      dirs << File.join(BASE_PATH, DOCUMENT_DIR, "asset") if @mode == :normal
       dirs.each do |dir|
         Dir.each_child(dir) do |entry|
           if entry =~ /\.\w+$/
@@ -154,6 +153,18 @@ class WholeSlideConverter
       end
     end
     return converter
+  end
+
+  def create_driver
+    if @mode == :image
+      options = WebDriver::Chrome::Options.new
+      options.add_argument("--headless")
+      options.add_option("excludeSwitches", ["enable-logging"])
+      driver = WebDriver.for(:chrome, options: options)
+    else
+      driver = nil
+    end
+    return driver
   end
 
   def modify_extension(path)
