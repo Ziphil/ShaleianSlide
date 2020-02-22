@@ -21,7 +21,6 @@ class WholeSlideConverter
   DOCUMENT_DIR = "document"
   TEMPLATE_DIR = "template"
 
-  THREAD_COUNT = 10
   IMAGE_SIZE = [1920, 1080]
 
   def initialize(args)
