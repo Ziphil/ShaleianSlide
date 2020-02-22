@@ -115,6 +115,9 @@ class WholeSlideConverter
           end
         end
       end
+    else
+      path = @rest_args.map{|s| s.gsub("\\", "/").gsub("c:/", "C:/")}[0].encode("utf-8")
+      paths << path
     end
     return paths
   end
