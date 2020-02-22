@@ -3,6 +3,9 @@
 
 \root|number="2"|<
 
+  \slide|number="1"|<
+  >
+
   \slide|number="2"|<
     \large<
       \em|color="1"|<動詞>が必要
