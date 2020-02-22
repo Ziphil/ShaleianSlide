@@ -3,7 +3,7 @@
 
 \root|number="2"|<
 
-  \slide|number="2",repeat="2"|<
+  \slide|number="2"|<
     \large<
       \em|color="1"|<動詞>が必要
     >
@@ -18,7 +18,7 @@
     >
   >
 
-  \slide|number="3",repeat="2"|<
+  \slide|number="3"|<
     \large<
       \em|color="1"|<助詞句> ＝ \em|color="2"|<助詞> ＋ \em|color="3"|<名詞>
     >
@@ -34,7 +34,7 @@
     >
   >
 
-  \slide|number="3",repeat="1"|<
+  \slide|number="3"|<
     \large<
       \em|color="1"|<助詞句>は動詞の後に並べる
     >
@@ -49,7 +49,7 @@
     >
   >
 
-  \slide|number="3",repeat="1"|<
+  \slide|number="3"|<
     \large<
       \em|color="1"|<助詞句>は動詞の後に並べる
     >
@@ -65,7 +65,7 @@
     >
   >
 
-  \slide|number="3",repeat="1"|<
+  \slide|number="3"|<
     \table<
       \tr<\th<助詞>\th|col="2"|<意味>>
       \tr<\td<{a}>\td<～が, ～は>\td<主語>>
@@ -77,7 +77,7 @@
     >
   >
 
-  \slide|number="4",repeat="2"|<
+  \slide|number="4"|<
     \xl<
       \li<
         \sh<
@@ -97,7 +97,7 @@
     >
   >
 
-  \slide|number="4",repeat="2"|<
+  \slide|number="4"|<
     \xl<
       \li<
         \sh<
@@ -116,7 +116,7 @@
     >
   >
 
-  \slide|number="4",repeat="2"|<
+  \slide|number="4"|<
     \xl<
       \li<
         \sh<
@@ -135,7 +135,7 @@
     >
   >
 
-  \slide|number="4",repeat="2"|<
+  \slide|number="4"|<
     \xl<
       \li<
         \sh<
