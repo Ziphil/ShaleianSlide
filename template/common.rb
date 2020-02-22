@@ -6,7 +6,7 @@ COLORS = {1 => "blue", 2 => "orange", 3 => "pink", 4 => "green"}
 converter.add(["xl"], ["root"]) do |element, _, count|
   this = ""
   this << Tag.build("ul", "conlang") do |this|
-    this.apply_count(element, count)
+    this.set_range(element, count)
     this << apply(element, "root.xl", count)
   end
   next this
@@ -15,7 +15,7 @@ end
 converter.add(["li"], ["root.xl"]) do |element, _, count|
   this = ""
   this << Tag.build("li") do |this|
-    this.apply_count(element, count)
+    this.set_range(element, count)
     this << apply(element, "root.xl.li", count)
   end
   next this
@@ -30,7 +30,7 @@ end
 converter.add(["ja"], ["root.xl.li"]) do |element, _, count|
   this = ""
   this << Tag.build("ul") do |this|
-    this.apply_count(element, count)
+    this.set_range(element, count)
     this << Tag.build("li") do |this|
       this << apply(element, "root", count)
     end
@@ -79,7 +79,7 @@ converter.add(["ver"], ["root"]) do |element, _, count|
   color_index = element.attribute("color")&.to_s&.to_i || 1
   color = COLORS[color_index]
   this << Tag.build("span", "vertical") do |this|
-    this.apply_count(element, count)
+    this.set_range(element, count)
     this << Tag.build("span", "above") do |this|
       this["class"] << " #{color}"
       this << apply(element.get_elements("ab").first, "root", count)
@@ -103,7 +103,7 @@ end
 converter.add(["large"], ["root"]) do |element, _, count|
   this = ""
   this << Tag.build("div", "large") do |this|
-    this.apply_count(element, count)
+    this.set_range(element, count)
     this << apply(element, "root", count)
   end
   next this
@@ -114,7 +114,7 @@ converter.add(["em"], ["root"]) do |element, _, count|
   color_index = element.attribute("color")&.to_s&.to_i || 1
   color = COLORS[color_index]
   this << Tag.build("span", "emphasis") do |this|
-    this.apply_count(element, count)
+    this.set_range(element, count)
     this["class"] << " #{color}"
     this << apply(element, "root", count)
   end

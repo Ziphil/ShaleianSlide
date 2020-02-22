@@ -3,7 +3,7 @@
 
 class Tag
 
-  def apply_count(element, count)
+  def set_range(element, count)
     range = Range.from(element.attribute("range").to_s)
     if range && !range.cover?(count + 1)
       self["style"] ||= ""
