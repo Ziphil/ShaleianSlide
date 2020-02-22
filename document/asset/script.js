@@ -9,13 +9,13 @@ function prepare() {
     if (event.key === "ArrowLeft") {
       if (index > 0) {
         index --;
-        scroll();
       }
+      scroll();
     } else if (event.key === "ArrowRight") {
       if (index < size - 1) {
         index ++;
-        scroll();
       }
+      scroll();
     }
   });
 }
