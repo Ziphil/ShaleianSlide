@@ -62,6 +62,10 @@ class WholeSlideConverter
     extension = File.extname(path).gsub(/^\./, "")
     output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).then(&method(:modify_extension))
     count_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).gsub("slide", "image").gsub(".zml", ".txt")
+    output_dir = File.dirname(output_path)
+    count_dir = File.dirname(count_path)
+    FileUtils.mkdir_p(output_dir)
+    FileUtils.mkdir_p(count_dir)
     case extension
     when "zml"
       @parser.update(File.read(path))
