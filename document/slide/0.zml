@@ -3,7 +3,7 @@
 
 \root|number="0"|<
 
-  \slide|number="4",repeat="3"|<
+  \slide|number="4"|<
     \large<
       \em|color="1"|<動詞>が先頭
     >
@@ -20,7 +20,7 @@
     >
   >
 
-  \slide|number="8",repeat="2"|<
+  \slide|number="8"|<
     \xl<
       \li<
         \sh<
