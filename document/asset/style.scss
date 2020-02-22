@@ -1,11 +1,6 @@
 @charset "utf-8";
 
 
-@function len($amount) {
-  @return 7.2vh * $amount;   
-}
-
-
 $font-family: "Times New Roman", "IPA P明朝";
 $sans-font-family: "Arial";
 $special-font-family: "Gill Sans Nova";
@@ -26,6 +21,10 @@ $background-colors: (
   pink: hsl(map-get($hues, pink), 100%, 90%)
 );
 
+
+html {
+  font-size: 7.2vh;
+}
 
 body {
   margin: 0px;
@@ -48,10 +47,10 @@ div.slide {
   overflow: hidden;
 
   div.number {
-    width: len(5);
-    height: len(5);
-    top: len(0.4);
-    left: len(5) * -1.4142 / 2;
+    width: 5rem;
+    height: 5rem;
+    top: 0.4rem;
+    left: 5rem * -1.4142 / 2;
     transform: rotate(-45deg);
     transform-origin: top left;
     background-color: hsl(205, 100%, 60%);
@@ -65,7 +64,7 @@ div.slide {
   div.number span.section {
     margin: 0em 0.3em -0.2em 0em;
     font-family: $special-font-family;
-    font-size: len(1);
+    font-size: 1rem;
     font-weight: bold;
     font-stretch: condensed;
     letter-spacing: -0.1em;
@@ -75,7 +74,7 @@ div.slide {
   div.number span.subsection {
     margin: 0em 0em -0.2em 0em;
     font-family: $special-font-family;
-    font-size: len(2);
+    font-size: 2rem;
     font-weight: bold;
     font-stretch: condensed;
     letter-spacing: -0.1em;
@@ -84,9 +83,9 @@ div.slide {
 
   div.header {
     width: 100%;
-    height: len(0.8);
-    top: len(0);
-    left: len(0);
+    height: 0.8rem;
+    top: 0rem;
+    left: 0rem;
     background-color: hsl(205, 100%, 60%);
     position: absolute;
     z-index: 0;
@@ -94,9 +93,9 @@ div.slide {
 
   div.footer {
     width: 100%;
-    height: len(0.8);
-    bottom: len(0);
-    left: len(0);
+    height: 0.8rem;
+    bottom: 0rem;
+    left: 0rem;
     background-color: hsl(35, 100%, 60%);
     position: absolute;
     z-index: 0;
@@ -108,7 +107,7 @@ div.slide {
 div.slide div.content {
   width: 100%;
   height: 100%;
-  padding: len(1) len(0);
+  padding: 1rem 0rem;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -118,12 +117,12 @@ div.slide div.content {
   // 基本文字
 
   div.large {
-    font-size: len(1.2);
+    font-size: 120%;
     letter-spacing: 0.1em;
   }
 
   div.huge {
-    font-size: len(1.5);
+    font-size: 150%;
     letter-spacing: 0.1em;
   }
 
@@ -165,8 +164,8 @@ div.slide div.content {
   }
 
   span.vertical span.above {
-    margin: len(0) len(0) len(0.1) len(0);
-    font-size: len(0.5);
+    margin: 0em 0em 0.2em 0em;
+    font-size: 50%;
     text-align: center;
     display: block;
   }
@@ -178,8 +177,8 @@ div.slide div.content {
   }
 
   span.vertical span.below {
-    margin: len(0.1) len(0) len(0) len(0);
-    font-size: len(0.6);
+    margin: 0.2em 0em 0em 0em;
+    font-size: 60%;
     text-align: center;
     display: block;
   }
@@ -187,35 +186,36 @@ div.slide div.content {
   // 例文の箇条書き
 
   ul.conlang {
-    margin: len(0);
-    padding: len(0);
+    margin: 0rem;
+    padding: 0rem;
+    font-size: 100%;
     list-style-type: none;
   }
 
   ul.conlang >li {
-    font-size: len(1);
+    font-size: 100%;
   }
 
   ul.conlang >li:nth-child(n+2) {
-    margin: len(0.8) len(0) len(0) len(0);
+    margin: 0.8rem 0rem 0rem 0rem;
   }
 
   ul.conlang >li >ul {
-    margin: len(0.4) len(0) len(0) len(0);
-    padding: len(0) len(0) len(0) len(0.3);
+    margin: 0.4rem 0rem 0rem 0rem;
+    padding: 0rem 0rem 0rem 0.3rem;
     list-style-type: none;
   }
 
   ul.conlang >li >ul >li {
-    margin-left: len(0.5);
-    font-size: len(0.7);
+    margin-left: 0.5rem;
+    font-size: 70%;
   }
 
   ul.conlang >li >ul >li::before {
-    width: len(0.5);
-    margin: len(0) len(0) len(0) len(-0.5);
+    width: 0.5rem;
+    margin: 0rem 0rem 0rem -0.5rem;
     font-family: "IPA P明朝";
-    font-size: 0.8em;
+    font-size: 80%;
     color: hsl(0, 0%, 50%);
     content: "▶";
     display: inline-block;
@@ -224,22 +224,22 @@ div.slide div.content {
   // 表
 
   $table-border-color: hsl(0, 0%, 70%);
-  $table-border-radius: 0.1em;
+  $table-border-radius: 0.1rem;
 
   table {
-    margin: len(0);
-    padding: len(0);
+    margin: 0rem;
+    padding: 0rem;
+    font-size: 80%;
     border-collapse: separate;
-    border-spacing: len(0);
+    border-spacing: 0rem;
     border-radius: $table-border-radius;
     white-space: nowrap;
   }
 
   table tr th,
   table tr td {
-    margin: len(0);
-    padding: len(0.2) len(0.6);
-    font-size: len(0.8);
+    margin: 0rem;
+    padding: 0.2rem 0.6rem;
     font-weight: normal;
     text-align: center;
     border-bottom: 0.05em $table-border-color solid;
