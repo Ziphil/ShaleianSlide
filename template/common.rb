@@ -38,23 +38,25 @@ converter.add(["ja"], ["root.xl.li"]) do |element, _, count|
   next this
 end
 
-converter.add(["table"], ["root"]) do |element, scope|
+converter.add(["table"], ["root"]) do |element, _, count|
   this = ""
   this << Tag.build("table") do |this|
-    this << apply(element, "root.table")
+    this.set_range(element, count)
+    this << apply(element, "root.table", count)
   end
   next this
 end
 
-converter.add(["tr"], ["root.table"]) do |element|
+converter.add(["tr"], ["root.table"]) do |element, _, count|
   this = ""
   this << Tag.build("tr") do |this|
-    this << apply(element, "root.table.tr")
+    this.set_range(element, count)
+    this << apply(element, "root.table.tr", count)
   end
   next this
 end
 
-converter.add(["th", "td"], ["root.table.tr"]) do |element|
+converter.add(["th", "td"], ["root.table.tr"]) do |element, _, count|
   this = ""
   this << Tag.build do |this|
     case element.name
@@ -69,7 +71,8 @@ converter.add(["th", "td"], ["root.table.tr"]) do |element|
     if element.attribute("col")
       this["colspan"] = element.attribute("col").to_s
     end
-    this << apply(element, "root")
+    this.set_range(element, count)
+    this << apply(element, "root", count)
   end
   next this
 end
