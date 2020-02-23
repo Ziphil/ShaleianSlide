@@ -38,3 +38,7 @@ bundle exec ruby converter/main.rb -i
 
 画像の生成には Selenium の Chrome ドライバを使用します。
 実行の前に、Chrome 本体に加え、専用のドライバを[こちら](http://chromedriver.storage.googleapis.com/index.html)からダウンロードし、パスを通しておいてください。
+
+## HTML ファイルの操作
+生成された HTML をブラウザで開くと、画面全体に 1 つのスライドが表示されます。
+キーボードの左右キーで表示するスライドを切り替えることができます。
