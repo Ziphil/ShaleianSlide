@@ -1,7 +1,11 @@
 \zml?|version="1.0"|>
 \xml?|version="1.0",encoding="UTF-8"|>
 
-\root|number="0"|<
+\root|number="16"|<
+
+  \title-slide<
+    \title<デザインチェック>
+  >
 
   \slide|number="4"|<
     \large<
