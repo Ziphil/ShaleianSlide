@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+
+div.title-slide {
+  @include slide;
+
+  div.header {
+    width: 100%;
+    height: 0.8rem;
+    top: 0rem;
+    left: 0rem;
+    background-color: hsl(205, 100%, 60%);
+    position: absolute;
+    z-index: 0;
+  }
+
+  div.footer {
+    width: 100%;
+    height: 0.8rem;
+    bottom: 0rem;
+    left: 0rem;
+    background-color: hsl(35, 100%, 60%);
+    position: absolute;
+    z-index: 0;
+  }
+
+}
+
+
+div.title-slide div.content {
+  @include slide-content;
+
+  // ロゴ
+
+  div.logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  div.logo-wrapper div.logo {
+    margin-right: 0.8rem;
+    line-height: 0;
+  }
+
+  div.logo-wrapper div.logo img {
+    height: 6rem;
+  }
+
+  // タイトル
+
+  div.title-wrapper div.number {
+    font-size: 60%;
+    color: map-get($colors, blue);
+    text-align: center;
+  }
+
+  div.title-wrapper div.number span.number {
+    margin: 0em 0.2em;
+    font-family: $special-font-family;
+    font-size: 250%;
+    font-weight: bold;
+    font-stretch: condensed;
+  }
+
+  div.title-wrapper div.title {
+    margin-top: 0.5rem;
+    font-size: 100%;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+
+}
