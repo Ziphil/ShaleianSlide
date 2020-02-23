@@ -99,7 +99,7 @@ class WholeSlideConverter
     @driver.manage.window.resize_to(*IMAGE_SIZE)
     @driver.execute_script("document.body.classList.add('simple');")
     count.times do |index|
-      @driver.execute_script("document.querySelectorAll('.slide')[#{index}].scrollIntoView();")
+      @driver.execute_script("document.querySelectorAll('*[class$=\\'slide\\']')[#{index}].scrollIntoView();")
       @driver.save_screenshot("#{output_path}-#{index}.png")
     end
   end

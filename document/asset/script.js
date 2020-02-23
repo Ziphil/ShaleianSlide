@@ -4,7 +4,7 @@
 let index = 0;
 
 function prepare() {
-  let size = document.querySelectorAll(".slide").length;
+  let size = document.querySelectorAll("*[class$='slide']").length;
   document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
       if (index > 0) {
@@ -21,7 +21,7 @@ function prepare() {
 }
 
 function scroll() {
-  document.querySelectorAll(".slide")[index].scrollIntoView();
+  document.querySelectorAll("*[class$='slide']")[index].scrollIntoView();
   console.log("Page: " + index);
 }
 
