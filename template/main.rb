@@ -13,14 +13,8 @@ end
 
 converter.add(["slide"], ["root"]) do |element, _, number|
   this = ""
-  end_counts = element.each_xpath("descendant::node()[@range]").map do |child|
-    range = Range.from(child.attribute("range").to_s)
-    end_count = range.end || range.begin
-    next end_count
-  end
-  repeat = end_counts.max || 1
   slide_number = element.attribute("number").to_s.to_i
-  repeat.times do |count|
+  Tag.repeat(element) do |count|
     variables[:slide_count] = variables[:slide_count].to_i + 1
     this << Tag.build("div", "slide") do |this|
       this << Tag.build("div", "number") do |this|
