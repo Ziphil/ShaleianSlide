@@ -81,7 +81,7 @@ converter.add(["ver"], ["root"]) do |element, _, count|
   this = ""
   color_index = element.attribute("color")&.to_s&.to_i || 1
   color = COLORS[color_index]
-  this << Tag.build("span", "vertical") do |this|
+  this << Tag.build("span", "pile") do |this|
     this.set_range(element, count)
     this << Tag.build("span", "above") do |this|
       this["class"] << " #{color}"
