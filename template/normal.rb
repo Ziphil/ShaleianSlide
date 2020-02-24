@@ -107,14 +107,14 @@ converter.add(["pl", "bpl", "upl"], ["slide"]) do |element, _, count|
   color = COLORS[color_index]
   this << Tag.build("span", "pile") do |this|
     this.set_range(element, count)
-    if element.any?{|s| s.name == "a"}
+    if element.any?{|s| s.is_a?(Element) && s.name == "a"}
       this << Tag.build("span", "above") do |this|
         this["class"] << " #{color}" if color
         this << apply(element.get_elements("a").first, "slide", count)
       end
     end
     this << Tag.build("span", "below-wrapper") do |this|
-      if element.any?{|s| s.name == "c"}
+      if element.any?{|s| s.is_a?(Element) && s.name == "c"}
         this << Tag.build("span", "center") do |this|
           unless element.name == "pl"
             this << Tag.build("span", "box") do |this|
@@ -132,7 +132,7 @@ converter.add(["pl", "bpl", "upl"], ["slide"]) do |element, _, count|
           end
         end
       end
-      if element.any?{|s| s.name == "b"}
+      if element.any?{|s| s.is_a?(Element) && s.name == "b"}
         this << Tag.build("span", "below") do |this|
           this["class"] << " #{color}" if color
           this << apply(element.get_elements("b").first, "slide", count)
