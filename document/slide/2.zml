@@ -12,12 +12,12 @@
 
   \slide|number="2"|<
     \large<
-      \em|color="1"|<動詞>が必要
+      \em|c="1"|<動詞>が必要
     >
     \xl|range="2-"|<
       \li<
         \sh<
-          \bpl|color="1"|<\a<動詞>\c<{hâres}>\b<笑った>>
+          \bpl|c="1"|<\a<動詞>\c<{hâres}>\b<笑った>>
           {a tel.}
         >
         \ja<私は笑った。>
@@ -27,14 +27,14 @@
 
   \slide|number="3"|<
     \large<
-      \em|color="1"|<助詞句> ＝ \em|color="2"|<助詞> ＋ \em|color="3"|<名詞>
+      \em|c="1"|<助詞句> ＝ \em|c="2"|<助詞> ＋ \em|c="3"|<名詞>
     >
     \xl|range="2-"|<
       \li<
         \sh<
           {hâres}
-          \bpl|color="2"|<\a<助詞>\c<{a}>\b<～は>>
-          \bpl|color="3"|<\a<名詞>\c<{tel}>\b<私>>{.}
+          \bpl|c="2"|<\a<助詞>\c<{a}>\b<～は>>
+          \bpl|c="3"|<\a<名詞>\c<{tel}>\b<私>>{.}
         >
         \ja<私は笑った。>
       >
@@ -43,13 +43,13 @@
 
   \slide|number="3"|<
     \large<
-      \em|color="1"|<助詞句>は動詞の後に並べる
+      \em|c="1"|<助詞句>は動詞の後に並べる
     >
     \xl<
       \li<
         \sh<
           {hâres}
-          \bpl|color="1"|<\a<助詞句>\c<{a tel}>\b<私は>>{.}
+          \bpl|c="1"|<\a<助詞句>\c<{a tel}>\b<私は>>{.}
         >
         \ja<私は笑った。>
       >
@@ -58,14 +58,14 @@
 
   \slide|number="3"|<
     \large<
-      \em|color="1"|<助詞句>は動詞の後に並べる
+      \em|c="1"|<助詞句>は動詞の後に並べる
     >
     \xl<
       \li<
         \sh<
           {sôdes}
-          \bpl|color="1"|<\a<助詞句>\c<{a ces}>\b<彼は>>
-          \bpl|color="1"|<\a<助詞句>\c<{e sakil}>\b<リンゴを>>{.}
+          \bpl|c="1"|<\a<助詞句>\c<{a ces}>\b<彼は>>
+          \bpl|c="1"|<\a<助詞句>\c<{e sakil}>\b<リンゴを>>{.}
         >
         \ja<彼はリンゴを食べた。>
       >
@@ -89,14 +89,14 @@
       \li<
         \sh<
           {vilises}
-          \bpl|color="1"|<\c<{a ces}>\b<彼は>>{.}
+          \bpl|c="1"|<\c<{a ces}>\b<彼は>>{.}
         >
         \ja<彼は走った。>
       >
       \li|range="2-"|<
         \sh<
           {lices}
-          \bpl|color="1"|<\c<{a tel}>\b<私は>>
+          \bpl|c="1"|<\c<{a tel}>\b<私は>>
           {e nát.}
         >
         \ja<私は花を見た。>
@@ -109,14 +109,14 @@
       \li<
         \sh<
           {teres a tel}
-          \bpl|color="1"|<\c<{e rix}>\b<水を>>{.}
+          \bpl|c="1"|<\c<{e rix}>\b<水を>>{.}
         >
         \ja<私は水を飲んだ。>
       >
       \li|range="2-"|<
         \sh<
           {qîles a ces}
-          \bpl|color="1"|<\c<{e liqit}>\b<電話を>>{.}
+          \bpl|c="1"|<\c<{e liqit}>\b<電話を>>{.}
         >
         \ja<彼は電話を使った。>
       >
@@ -128,14 +128,14 @@
       \li<
         \sh<
           {lanes a tel}
-          \bpl|color="1"|<\c<{ca naflat}>\b<公園へ>>{.}
+          \bpl|c="1"|<\c<{ca naflat}>\b<公園へ>>{.}
         >
         \ja<私は公園へ行った。>
       >
       \li|range="2-"|<
         \sh<
           {séqes a tel e sokiq}
-          \bpl|color="1"|<\c<{ca ces}>\b<彼に>>{.}
+          \bpl|c="1"|<\c<{ca ces}>\b<彼に>>{.}
         >
         \ja<私は腕時計を彼にあげた。>
       >
@@ -147,14 +147,14 @@
       \li<
         \sh<
           {cákes a ces}
-          \bpl|color="1"|<\c<{zi kolot}>\b<駅から>>{.}
+          \bpl|c="1"|<\c<{zi kolot}>\b<駅から>>{.}
         >
         \ja<彼は駅から来た。>
       >
       \li|range="2-"|<
         \sh<
           {nifetes a tel e sakil}
-          \bpl|color="1"|<\c<{zi sod}>\b<家から>>{.}
+          \bpl|c="1"|<\c<{zi sod}>\b<家から>>{.}
         >
         \ja<私はリンゴを家から持って来た。>
       >

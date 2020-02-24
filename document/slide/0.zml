@@ -9,15 +9,15 @@
 
   \slide|number="4"|<
     \large<
-      \em|color="1"|<動詞>が先頭
+      \em|c="1"|<動詞>が先頭
     >
     \xl|range="2-"|<
       \li<
         \sh<
-          \bpl|color="1"|<\a<動詞>\c<{sôdes}>\b<食べた>>
-          \bpl|color="3"|<\a<副詞>\c<{otîv}>\b<素早く>>
-          \bpl|color="2"|<\a<助詞句>\c<{a ces}>\b<彼は>>
-          \bpl|color="2"|<\a<助詞句>\c<{e sakil}>\b<リンゴを>>{.}
+          \bpl|c="1"|<\a<動詞>\c<{sôdes}>\b<食べた>>
+          \bpl|c="3"|<\a<副詞>\c<{otîv}>\b<素早く>>
+          \bpl|c="2"|<\a<助詞句>\c<{a ces}>\b<彼は>>
+          \bpl|c="2"|<\a<助詞句>\c<{e sakil}>\b<リンゴを>>{.}
         >
         \ja|range="3-"|<彼は素早くリンゴを食べた。>
       >
@@ -29,15 +29,15 @@
       \li<
         \sh<
           {lices}
-          \bpl|color="1"|<\a<助詞句>\c<{a tel}>\b<私は>>
-          \bpl|color="1"|<\a<助詞句>\c<{e nát}>\b<花を>>{.}
+          \bpl|c="1"|<\a<助詞句>\c<{a tel}>\b<私は>>
+          \bpl|c="1"|<\a<助詞句>\c<{e nát}>\b<花を>>{.}
         >
         \ja<私は花を見た。>
       >
       \li|range="2-"|<
         \sh<
           {séqes a tel e sokiq}
-          \bpl|color="1"|<\a<助詞句>\c<{ca ces}>\b<彼に>>{.}
+          \bpl|c="1"|<\a<助詞句>\c<{ca ces}>\b<彼に>>{.}
         >
         \ja<私は腕時計を彼にあげた。>
       >
