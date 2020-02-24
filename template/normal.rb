@@ -101,31 +101,35 @@ converter.add(["th", "td"], ["slide.table.tr"]) do |element, _, count|
   next this
 end
 
-converter.add(["ver"], ["slide"]) do |element, _, count|
+converter.add(["pl", "bpl"], ["slide"]) do |element, _, count|
   this = ""
   color_index = element.attribute("color")&.to_s&.to_i || 1
   color = COLORS[color_index]
   this << Tag.build("span", "pile") do |this|
     this.set_range(element, count)
-    if element.any?{|s| s.name == "ab"}
+    if element.any?{|s| s.name == "a"}
       this << Tag.build("span", "above") do |this|
         this["class"] << " #{color}"
-        this << apply(element.get_elements("ab").first, "slide", count)
+        this << apply(element.get_elements("a").first, "slide", count)
       end
     end
     this << Tag.build("span", "below-wrapper") do |this|
-      if element.any?{|s| s.name == "bx"}
+      if element.any?{|s| s.name == "c"}
         this << Tag.build("span", "center") do |this|
-          this << Tag.build("span", "box") do |this|
-            this["class"] << " #{color}"
-            this << apply(element.get_elements("bx").first, "slide", count)
+          if element.name == "bpl"
+            this << Tag.build("span", "box") do |this|
+              this["class"] << " #{color}"
+              this << apply(element.get_elements("c").first, "slide", count)
+            end
+          else
+            this << apply(element.get_elements("c").first, "slide", count)
           end
         end
       end
-      if element.any?{|s| s.name == "bl"}
+      if element.any?{|s| s.name == "b"}
         this << Tag.build("span", "below") do |this|
           this["class"] << " #{color}"
-          this << apply(element.get_elements("bl").first, "slide", count)
+          this << apply(element.get_elements("b").first, "slide", count)
         end
       end
     end
