@@ -20,7 +20,7 @@
           \bpl|c="1"|<\a<動詞>\c<{hâres}>\b<笑った>>
           {a tel.}
         >
-        \ja<私は笑った。>
+        \ja<私は\em|c="1"|<笑った>。>
       >
     >
   >
@@ -36,7 +36,7 @@
           \bpl|c="2"|<\a<助詞>\c<{a}>\b<～は>>
           \bpl|c="3"|<\a<名詞>\c<{tel}>\b<私>>{.}
         >
-        \ja<私は笑った。>
+        \ja<\em|c="3"|<私>\em|c="2"|<は>笑った。>
       >
     >
   >
@@ -51,7 +51,7 @@
           {hâres}
           \bpl|c="1"|<\a<助詞句>\c<{a tel}>\b<私は>>{.}
         >
-        \ja<私は笑った。>
+        \ja<\em|c="1"|<私は>笑った。>
       >
     >
   >
@@ -67,7 +67,7 @@
           \bpl|c="1"|<\a<助詞句>\c<{a ces}>\b<彼は>>
           \bpl|c="1"|<\a<助詞句>\c<{e sakil}>\b<リンゴを>>{.}
         >
-        \ja<彼はリンゴを食べた。>
+        \ja<\em|c="1"|<彼は>\em|c="1"|<リンゴを>食べた。>
       >
     >
   >
@@ -88,18 +88,18 @@
     \xl<
       \li<
         \sh<
-          {vilises}
+          \upl<\c<{vilises}>\b<走った>>
           \bpl|c="1"|<\c<{a ces}>\b<彼は>>{.}
         >
-        \ja<彼は走った。>
+        \ja<\em|c="1"|<彼は>走った。>
       >
       \li|range="2-"|<
         \sh<
-          {lices}
+          \upl<\c<{lices}>\b<見た>>
           \bpl|c="1"|<\c<{a tel}>\b<私は>>
-          {e nát.}
+          \upl<\c<{e nát}>\b<花を>>{.}
         >
-        \ja<私は花を見た。>
+        \ja<\em|c="1"|<私は>花を見た。>
       >
     >
   >
@@ -108,17 +108,19 @@
     \xl<
       \li<
         \sh<
-          {teres a tel}
+          \upl<\c<{teres}>\b<飲んだ>>
+          \upl<\c<{a tel}>\b<私は>>
           \bpl|c="1"|<\c<{e rix}>\b<水を>>{.}
         >
-        \ja<私は水を飲んだ。>
+        \ja<私は\em|c="1"|<水を>飲んだ。>
       >
       \li|range="2-"|<
         \sh<
-          {qîles a ces}
+          \upl<\c<{qîles}>\b<使った>>
+          \upl<\c<{a ces}>\b<彼は>>
           \bpl|c="1"|<\c<{e liqit}>\b<電話を>>{.}
         >
-        \ja<彼は電話を使った。>
+        \ja<彼は\em|c="1"|<電話を>使った。>
       >
     >
   >
@@ -127,17 +129,20 @@
     \xl<
       \li<
         \sh<
-          {lanes a tel}
+          \upl<\c<{lanes}>\b<行った>>
+          \upl<\c<{a tel}>\b<私は>>
           \bpl|c="1"|<\c<{ca naflat}>\b<公園へ>>{.}
         >
-        \ja<私は公園へ行った。>
+        \ja<私は\em|c="1"|<公園へ>行った。>
       >
       \li|range="2-"|<
         \sh<
-          {séqes a tel e sokiq}
+          \upl<\c<{séqes}>\b<あげた>>
+          \upl<\c<{a tel}>\b<私は>>
+          \upl<\c<{e sokiq}>\b<腕時計を>>
           \bpl|c="1"|<\c<{ca ces}>\b<彼に>>{.}
         >
-        \ja<私は腕時計を彼にあげた。>
+        \ja<私は腕時計を\em|c="1"|<彼に>あげた。>
       >
     >
   >
@@ -146,17 +151,20 @@
     \xl<
       \li<
         \sh<
-          {cákes a ces}
+          \upl<\c<{cákes}>\b<来た>>
+          \upl<\c<{a ces}>\b<彼は>>
           \bpl|c="1"|<\c<{zi kolot}>\b<駅から>>{.}
         >
-        \ja<彼は駅から来た。>
+        \ja<彼は\em|c="1"|<駅から>来た。>
       >
       \li|range="2-"|<
         \sh<
-          {nifetes a tel e sakil}
+          \upl<\c<{nifetes}>\b<持って来た>>
+          \upl<\c<{a tel}>\b<私は>>
+          \upl<\c<{e sakil}>\b<リンゴを>>
           \bpl|c="1"|<\c<{zi sod}>\b<家から>>{.}
         >
-        \ja<私はリンゴを家から持って来た。>
+        \ja<私はリンゴを\em|c="1"|<家から>持って来た。>
       >
     >
   >
