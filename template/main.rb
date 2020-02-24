@@ -27,6 +27,14 @@ converter.add(["i"], [//]) do |element, scope, *args|
   next this
 end
 
+converter.add(["k"], ["slide"]) do |element, scope, *args|
+  this = ""
+  this << Tag.build("span", "japanese") do |this|
+    this << apply(element, scope, *args)
+  end
+  next this
+end
+
 converter.add_default(nil) do |text|
   this = ""
   this << text.to_s

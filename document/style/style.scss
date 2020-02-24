@@ -74,4 +74,9 @@ body {
     line-height: 96% !important;
   }
 
+  span.japanese {
+    font-family: "IPA明朝" !important;
+    font-feature-settings: "palt" 0;
+  }
+
 }
