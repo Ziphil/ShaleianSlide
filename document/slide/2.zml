@@ -169,4 +169,89 @@
     >
   >
 
+  \slide|number="4"|<
+    \xl<
+      \li<
+        \sh<
+          \upl<\c<{zédices}>\b<運動した>>
+          \upl<\c<{a ces}>\b<彼は>>
+          \bpl|c="1"|<\c<{te tazît}>\b<昨日>>{.}
+        >
+        \ja<彼は\em|c="1"|<昨日>運動した。>
+      >
+      \li|range="2-"|<
+        \sh<
+          \upl<\c<{lîdes}>\b<読んだ>>
+          \upl<\c<{a tel}>\b<私は>>
+          \bpl|c="1"|<\c<{te zéc}>\b<朝に>>
+          \upl<\c<{e xoq}>\b<本を>>{.}
+        >
+        \ja<私は\em|c="1"|<朝に>本を読んだ。>
+      >
+    >
+  >
+
+  \slide|number="4"|<
+    \xl<
+      \li<
+        \sh<
+          \upl<\c<{kotikes}>\b<見つけた>>
+          \upl<\c<{a tel}>\b<私は>>
+          \upl<\c<{e monaf}>\b<猫を>>
+          \bpl|c="1"|<\c<{vo fêd}>\b<ここで>>{.}
+        >
+        \ja<私は猫を\em|c="1"|<ここで>見つけた。>
+      >
+      \li|range="2-"|<
+        \sh<
+          \upl<\c<{déqes}>\b<座った>>
+          \upl<\c<{a ces}>\b<彼は>>
+          \bpl|c="1"|<\c<{vo sokul}>\b<部屋で>>
+          \upl<\c<{ca dezet}>\b<椅子に>>{.}
+        >
+        \ja<彼は\em|c="1"|<部屋で>椅子に座った。>
+      >
+    >
+  >
+
+  \slide|number="5"|<
+    \large<
+      \em|c="1"|<{i} 句> → \em|c="2"|<名詞>を修飾する
+    >
+    \xl|range="2-"|<
+      \li<
+        \sh<
+          {qoletes a tel e}
+          \upl<
+            \c<
+              \bpl|c="2"|<\a<名詞>\c<{xoq}>\b<本>>
+              \bpl|c="1"|<\a<{i} 句>\c<{i ces}>\b<彼の>>
+            >
+            \b<彼の本>
+          >{.}
+        >
+        \ja<私は\em|c="1"|<彼の>\em|c="2"|<本>を売った。>
+      >
+    >
+  >
+
+  \slide|number="5"|<
+    \large<
+      \em|c="1"|<{i} 句>\k<＋>\em|c="2"|<名詞>\k<＝> \em|c="3"|<1 つの名詞>
+    >
+    \xl<
+      \li<
+        \sh<
+          \upl<\c<{qolets}>\b<売った>>
+          \upl<\c<{a tel}>\b<私は>>
+          \upl<
+            \c<{e }\bpl|c="3"|<\c<{xoq i ces}>\b<彼の本>>>
+            \b<彼の本を>
+          >{.}
+        >
+        \ja<私は\em|c="3"|<彼の本を>売った。>
+      >
+    >
+  >
+
 >
