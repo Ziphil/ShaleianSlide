@@ -107,20 +107,26 @@ converter.add(["ver"], ["root"]) do |element, _, count|
   color = COLORS[color_index]
   this << Tag.build("span", "pile") do |this|
     this.set_range(element, count)
-    this << Tag.build("span", "above") do |this|
-      this["class"] << " #{color}"
-      this << apply(element.get_elements("ab").first, "root", count)
+    if element.any?{|s| s.name == "ab"}
+      this << Tag.build("span", "above") do |this|
+        this["class"] << " #{color}"
+        this << apply(element.get_elements("ab").first, "root", count)
+      end
     end
     this << Tag.build("span", "below-wrapper") do |this|
-      this << Tag.build("span", "center") do |this|
-        this << Tag.build("span", "box") do |this|
-          this["class"] << " #{color}"
-          this << apply(element.get_elements("bx").first, "root", count)
+      if element.any?{|s| s.name == "bx"}
+        this << Tag.build("span", "center") do |this|
+          this << Tag.build("span", "box") do |this|
+            this["class"] << " #{color}"
+            this << apply(element.get_elements("bx").first, "root", count)
+          end
         end
       end
-      this << Tag.build("span", "below") do |this|
-        this["class"] << " #{color}"
-        this << apply(element.get_elements("bl").first, "root", count)
+      if element.any?{|s| s.name == "bl"}
+        this << Tag.build("span", "below") do |this|
+          this["class"] << " #{color}"
+          this << apply(element.get_elements("bl").first, "root", count)
+        end
       end
     end
   end

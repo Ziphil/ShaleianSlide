@@ -89,14 +89,14 @@
       \li<
         \sh<
           {vilises}
-          \ver|color="1"|<\ab<>\bx<{a ces}>\bl<彼は>>{.}
+          \ver|color="1"|<\bx<{a ces}>\bl<彼は>>{.}
         >
         \ja<彼は走った。>
       >
       \li|range="2-"|<
         \sh<
           {lices}
-          \ver|color="1"|<\ab<>\bx<{a tel}>\bl<私は>>
+          \ver|color="1"|<\bx<{a tel}>\bl<私は>>
           {e nát.}
         >
         \ja<私は花を見た。>
@@ -109,14 +109,14 @@
       \li<
         \sh<
           {teres a tel}
-          \ver|color="1"|<\ab<>\bx<{e rix}>\bl<水を>>{.}
+          \ver|color="1"|<\bx<{e rix}>\bl<水を>>{.}
         >
         \ja<私は水を飲んだ。>
       >
       \li|range="2-"|<
         \sh<
           {qîles a ces}
-          \ver|color="1"|<\ab<>\bx<{e liqit}>\bl<電話を>>{.}
+          \ver|color="1"|<\bx<{e liqit}>\bl<電話を>>{.}
         >
         \ja<彼は電話を使った。>
       >
@@ -128,14 +128,14 @@
       \li<
         \sh<
           {lanes a tel}
-          \ver|color="1"|<\ab<>\bx<{ca naflat}>\bl<公園へ>>{.}
+          \ver|color="1"|<\bx<{ca naflat}>\bl<公園へ>>{.}
         >
         \ja<私は公園へ行った。>
       >
       \li|range="2-"|<
         \sh<
           {séqes a tel e sokiq}
-          \ver|color="1"|<\ab<>\bx<{ca ces}>\bl<彼に>>{.}
+          \ver|color="1"|<\bx<{ca ces}>\bl<彼に>>{.}
         >
         \ja<私は腕時計を彼にあげた。>
       >
@@ -147,14 +147,14 @@
       \li<
         \sh<
           {cákes a ces}
-          \ver|color="1"|<\ab<>\bx<{zi kolot}>\bl<駅から>>{.}
+          \ver|color="1"|<\bx<{zi kolot}>\bl<駅から>>{.}
         >
         \ja<彼は駅から来た。>
       >
       \li|range="2-"|<
         \sh<
           {nifetes a tel e sakil}
-          \ver|color="1"|<\ab<>\bx<{zi sod}>\bl<家から>>{.}
+          \ver|color="1"|<\bx<{zi sod}>\bl<家から>>{.}
         >
         \ja<私はリンゴを家から持って来た。>
       >
