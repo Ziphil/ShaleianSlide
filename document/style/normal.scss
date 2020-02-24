@@ -88,7 +88,7 @@ div.slide div.content {
   // ボックス
 
   $box-horizontal-margin: 0.05em;
-  $box-vertical-padding: 0.1em;
+  $box-vertical-padding: 0.08em;
   $box-horizontal-padding: 0.25em;
 
   span.box {
@@ -106,6 +106,21 @@ div.slide div.content {
       background-color: map-get($background-colors, $name);
       border-color: map-get($colors, $name);
     }
+  }
+
+  // 下線
+
+  $underline-vertical-padding: 0.08em;
+  $underline-horizontal-padding: 0.05em;
+  $underline-border-color: hsl(0, 0%, 50%);
+
+  span.underline {
+    margin: 0em;
+    padding: 0em $underline-horizontal-padding $underline-vertical-padding $underline-horizontal-padding;
+    border-bottom: $border-width $underline-border-color solid;
+    border-radius: $border-radius;
+    text-align: center;
+    display: block;
   }
 
   // 上下の説明

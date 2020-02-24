@@ -101,7 +101,7 @@ converter.add(["th", "td"], ["slide.table.tr"]) do |element, _, count|
   next this
 end
 
-converter.add(["pl", "bpl"], ["slide"]) do |element, _, count|
+converter.add(["pl", "bpl", "upl"], ["slide"]) do |element, _, count|
   this = ""
   color_index = element.attribute("c").to_s.to_i
   color = COLORS[color_index]
@@ -116,9 +116,15 @@ converter.add(["pl", "bpl"], ["slide"]) do |element, _, count|
     this << Tag.build("span", "below-wrapper") do |this|
       if element.any?{|s| s.name == "c"}
         this << Tag.build("span", "center") do |this|
-          if element.name == "bpl"
+          unless element.name == "pl"
             this << Tag.build("span", "box") do |this|
-              this["class"] << " #{color}"
+              case element.name
+              when "bpl"
+                this["class"] = "box"
+                this["class"] << " #{color}"
+              when "upl"
+                this["class"] = "underline"
+              end
               this << apply(element.get_elements("c").first, "slide", count)
             end
           else
