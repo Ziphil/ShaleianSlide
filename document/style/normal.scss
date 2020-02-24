@@ -143,6 +143,12 @@ div.slide div.content {
     display: block;
   }
 
+  @each $name in map-keys($hues) {
+    span.pile span.below.#{$name} {
+      color: map-get($colors, $name);
+    }
+  }
+
   // 例文の箇条書き
 
   $conlang-item-gap: 0.8rem;
