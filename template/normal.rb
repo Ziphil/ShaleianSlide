@@ -20,67 +20,67 @@ converter.add(["slide"], ["root"]) do |element, _, number|
       this << Tag.new("div", "header")
       this << Tag.new("div", "footer")
       this << Tag.build("div", "content") do |this|
-        this << apply(element, "root", count)
+        this << apply(element, "slide", count)
       end
     end
   end
   next this
 end
 
-converter.add(["xl"], ["root"]) do |element, _, count|
+converter.add(["xl"], ["slide"]) do |element, _, count|
   this = ""
   this << Tag.build("ul", "conlang") do |this|
     this.set_range(element, count)
-    this << apply(element, "root.xl", count)
+    this << apply(element, "slide.xl", count)
   end
   next this
 end
 
-converter.add(["li"], ["root.xl"]) do |element, _, count|
+converter.add(["li"], ["slide.xl"]) do |element, _, count|
   this = ""
   this << Tag.build("li") do |this|
     this.set_range(element, count)
-    this << apply(element, "root.xl.li", count)
+    this << apply(element, "slide.xl.li", count)
   end
   next this
 end
 
-converter.add(["sh"], ["root.xl.li"]) do |element, _, count|
+converter.add(["sh"], ["slide.xl.li"]) do |element, _, count|
   this = ""
-  this << apply(element, "root", count)
+  this << apply(element, "slide", count)
   next this
 end
 
-converter.add(["ja"], ["root.xl.li"]) do |element, _, count|
+converter.add(["ja"], ["slide.xl.li"]) do |element, _, count|
   this = ""
   this << Tag.build("ul") do |this|
     this.set_range(element, count)
     this << Tag.build("li") do |this|
-      this << apply(element, "root", count)
+      this << apply(element, "slide", count)
     end
   end
   next this
 end
 
-converter.add(["table"], ["root"]) do |element, _, count|
+converter.add(["table"], ["slide"]) do |element, _, count|
   this = ""
   this << Tag.build("table") do |this|
     this.set_range(element, count)
-    this << apply(element, "root.table", count)
+    this << apply(element, "slide.table", count)
   end
   next this
 end
 
-converter.add(["tr"], ["root.table"]) do |element, _, count|
+converter.add(["tr"], ["slide.table"]) do |element, _, count|
   this = ""
   this << Tag.build("tr") do |this|
     this.set_range(element, count)
-    this << apply(element, "root.table.tr", count)
+    this << apply(element, "slide.table.tr", count)
   end
   next this
 end
 
-converter.add(["th", "td"], ["root.table.tr"]) do |element, _, count|
+converter.add(["th", "td"], ["slide.table.tr"]) do |element, _, count|
   this = ""
   this << Tag.build do |this|
     case element.name
@@ -96,12 +96,12 @@ converter.add(["th", "td"], ["root.table.tr"]) do |element, _, count|
       this["colspan"] = element.attribute("col").to_s
     end
     this.set_range(element, count)
-    this << apply(element, "root", count)
+    this << apply(element, "slide", count)
   end
   next this
 end
 
-converter.add(["ver"], ["root"]) do |element, _, count|
+converter.add(["ver"], ["slide"]) do |element, _, count|
   this = ""
   color_index = element.attribute("color")&.to_s&.to_i || 1
   color = COLORS[color_index]
@@ -110,7 +110,7 @@ converter.add(["ver"], ["root"]) do |element, _, count|
     if element.any?{|s| s.name == "ab"}
       this << Tag.build("span", "above") do |this|
         this["class"] << " #{color}"
-        this << apply(element.get_elements("ab").first, "root", count)
+        this << apply(element.get_elements("ab").first, "slide", count)
       end
     end
     this << Tag.build("span", "below-wrapper") do |this|
@@ -118,14 +118,14 @@ converter.add(["ver"], ["root"]) do |element, _, count|
         this << Tag.build("span", "center") do |this|
           this << Tag.build("span", "box") do |this|
             this["class"] << " #{color}"
-            this << apply(element.get_elements("bx").first, "root", count)
+            this << apply(element.get_elements("bx").first, "slide", count)
           end
         end
       end
       if element.any?{|s| s.name == "bl"}
         this << Tag.build("span", "below") do |this|
           this["class"] << " #{color}"
-          this << apply(element.get_elements("bl").first, "root", count)
+          this << apply(element.get_elements("bl").first, "slide", count)
         end
       end
     end
@@ -133,23 +133,23 @@ converter.add(["ver"], ["root"]) do |element, _, count|
   next this
 end
 
-converter.add(["large"], ["root"]) do |element, _, count|
+converter.add(["large"], ["slide"]) do |element, _, count|
   this = ""
   this << Tag.build("div", "large") do |this|
     this.set_range(element, count)
-    this << apply(element, "root", count)
+    this << apply(element, "slide", count)
   end
   next this
 end
 
-converter.add(["em"], ["root"]) do |element, _, count|
+converter.add(["em"], ["slide"]) do |element, _, count|
   this = ""
   color_index = element.attribute("color")&.to_s&.to_i || 1
   color = COLORS[color_index]
   this << Tag.build("span", "emphasis") do |this|
     this.set_range(element, count)
     this["class"] << " #{color}"
-    this << apply(element, "root", count)
+    this << apply(element, "slide", count)
   end
   next this
 end

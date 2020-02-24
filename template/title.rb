@@ -23,7 +23,7 @@ converter.add(["title-slide"], ["root"]) do |element, _, number|
               end
               this << "課"
             end
-            this << apply(element, "root", count)
+            this << apply(element, "title-slide", count)
           end
         end
       end
@@ -32,11 +32,11 @@ converter.add(["title-slide"], ["root"]) do |element, _, number|
   next this
 end
 
-converter.add(["title"], ["root"]) do |element, _, count|
+converter.add(["title"], ["title-slide"]) do |element, _, count|
   this = ""
   this << Tag.build("div", "title") do |this|
     this.set_range(element, count)
-    this << apply(element, "root", count)
+    this << apply(element, "title-slide", count)
   end
   next this
 end
