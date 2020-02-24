@@ -25,12 +25,17 @@ class WholeSlideConverter
 
   def initialize(args)
     options, rest_args = args.partition{|s| s =~ /^\-\w$/}
+    open = false
     if options.include?("-i")
       @mode = :image
     else
+      if options.include?("-o")
+        open = true
+      end
       @mode = :normal
     end
     @rest_args = rest_args
+    @open = open
     @paths = create_paths
     @parser = create_parser
     @converter = create_converter
@@ -49,6 +54,7 @@ class WholeSlideConverter
   def execute_normal
     @paths.each_with_index do |path, index|
       convert_normal(path)
+      convert_open(path) if @open
     end
   end
 
@@ -102,6 +108,11 @@ class WholeSlideConverter
       @driver.execute_script("document.querySelectorAll('*[class$=\\'slide\\']')[#{index}].scrollIntoView();")
       @driver.save_screenshot("#{output_path}-#{index}.png")
     end
+  end
+
+  def convert_open(path)
+    output_path = path.gsub(DOCUMENT_DIR, OUTPUT_DIR).then(&method(:modify_extension))
+    Kernel.spawn("start #{output_path}")
   end
 
   def create_paths
