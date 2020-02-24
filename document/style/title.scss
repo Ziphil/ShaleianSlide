@@ -39,18 +39,18 @@ div.title-slide div.content {
   }
 
   div.logo-wrapper div.logo {
-    margin-right: 0.8rem;
+    margin-right: 1rem;
     line-height: 0;
   }
 
   div.logo-wrapper div.logo img {
-    height: 6rem;
+    height: 7rem;
   }
 
   // タイトル
 
   div.title-wrapper div.number {
-    font-size: 60%;
+    font-size: 70%;
     color: map-get($colors, blue);
     text-align: center;
   }
@@ -65,7 +65,7 @@ div.title-slide div.content {
 
   div.title-wrapper div.title {
     margin-top: 0.5rem;
-    font-size: 100%;
+    font-size: 120%;
     text-align: center;
     letter-spacing: 0.1em;
   }
