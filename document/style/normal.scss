@@ -211,6 +211,8 @@ div.slide div.content {
 
   // 表
 
+  $table-cell-vertical-padding: 0.3em;
+  $table-cell-horizontal-padding: 0.7em;
   $table-border-color: hsl(0, 0%, 70%);
 
   table {
@@ -226,7 +228,7 @@ div.slide div.content {
   table tr th,
   table tr td {
     margin: 0rem;
-    padding: 0.2rem 0.6rem;
+    padding: $table-cell-vertical-padding $table-cell-horizontal-padding;
     font-weight: normal;
     text-align: center;
     border-bottom: $border-width $table-border-color solid;
