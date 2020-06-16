@@ -6,6 +6,7 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v1
       - name: "Cache bundle directory"
         uses: actions/cache@v1
         with:
