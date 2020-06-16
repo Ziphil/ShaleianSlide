@@ -4,8 +4,16 @@
 
 
 ## 概要
-シャレイア語の文法解説動画で使用するスライド画像を生成します。
-GUI 撲滅!!
+シャレイア語の文法解説動画で使用する予定のスライドを生成します。
+
+## 閲覧
+GitHub Actions を用いて自動的に GitHub Pages として公開するようにしているので、以下のリンクからスライドをいつでも閲覧することができます。
+
+- [デザインチェック](https://ziphil.github.io/ShaleianSlidePage/slide/0.html)
+- [第 2 課: 動詞と助詞句](https://ziphil.github.io/ShaleianSlidePage/slide/2.html)
+
+ページを開くと、画面全体に 1 枚のスライドが表示されます。
+キーボードの左右キーで表示するスライドを切り替えることができます。
 
 ## 下準備
 
@@ -38,7 +46,3 @@ bundle exec ruby converter/main.rb -i
 
 画像の生成には Selenium の Chrome ドライバを使用します。
 実行の前に、Chrome 本体に加え、専用のドライバを[こちら](http://chromedriver.storage.googleapis.com/index.html)からダウンロードし、パスを通しておいてください。
-
-## HTML ファイルの操作
-生成された HTML をブラウザで開くと、画面全体に 1 つのスライドが表示されます。
-キーボードの左右キーで表示するスライドを切り替えることができます。
