@@ -24,6 +24,8 @@ jobs:
         run: "bundle config path vendor/bundle"
       - name: "Configure bundler platform"
         run: "bundle config specific_platform x86_64-linux"
+      - name: "Configure sassc"
+        run: "bundle config --local build.sassc --disable-march-tune-native"
       - name: "Install dependencies"
         run: "bundle install --gemfile=gemfile"
       - name: "Generate"
