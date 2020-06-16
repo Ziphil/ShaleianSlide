@@ -6,14 +6,24 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
+      - name: "Cache bundle directory"
+        uses: actions/cache@v1
+        with:
+          path: "vendor/bundle"
+          key: "${{ runner.os }}-bundle-${{ hashFiles('**/gemfile.lock') }}"
+          restore-keys: "${{ runner.os }}-bundle-"
       - name: "Setup Ruby 2.6"
         uses: actions/setup-ruby@v1
         with:
           ruby-version: "2.6.x"
       - name: "Install bundler"
         run: "gem install bundler"
+      - name: "Configure bundler for cache"
+        run: "bundle config path vendor/bundle"
+      - name: "Configure bundler platform"
+        run: "bundle config specific_platform x86_64-linux"
       - name: "Install dependencies"
-        run: "bundle install --gemfile=gemfile.lock"
+        run: "bundle install"
       - name: "Generate"
         run: "bundle exec ruby 'converter/main.rb'"
       - name: "Deploy"
