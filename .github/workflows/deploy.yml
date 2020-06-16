@@ -27,7 +27,7 @@ jobs:
       - name: "Install dependencies"
         run: "bundle install --gemfile=gemfile"
       - name: "Generate"
-        run: "bundle exec ruby 'converter/main.rb'"
+        run: "bundle exec --gemfile=gemfile ruby 'converter/main.rb'"
       - name: "Deploy"
         uses: peaceiris/actions-gh-pages@v3
         with:
