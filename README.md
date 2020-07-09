@@ -9,8 +9,7 @@
 ## 閲覧
 GitHub Actions を用いて自動的に GitHub Pages として公開するようにしているので、以下のリンクからスライドをいつでも閲覧することができます。
 
-- [デザインチェック](https://ziphil.github.io/ShaleianSlidePage/slide/0.html)
-- [第 2 課: 動詞と助詞句](https://ziphil.github.io/ShaleianSlidePage/slide/2.html)
+- [スライド一覧](https://ziphil.github.io/ShaleianSlidePage/slide/)
 
 ページを開くと、画面全体に 1 枚のスライドが表示されます。
 キーボードの左右キーで表示するスライドを切り替えることができます。
