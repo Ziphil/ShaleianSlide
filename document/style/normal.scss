@@ -215,7 +215,7 @@ div.slide div.content {
   $table-cell-horizontal-padding: 0.8em;
   $table-border-color: hsl(0, 0%, 70%);
 
-  table {
+  table.border {
     margin: 0rem;
     padding: 0rem;
     font-size: 80%;
@@ -225,8 +225,8 @@ div.slide div.content {
     white-space: nowrap;
   }
 
-  table tr th,
-  table tr td {
+  table.border tr th,
+  table.border tr td {
     margin: 0rem;
     padding: $table-cell-vertical-padding $table-cell-horizontal-padding;
     font-weight: normal;
@@ -235,38 +235,71 @@ div.slide div.content {
     border-right: $border-width $table-border-color solid;
   }
 
-  table tr th {
+  table.border tr th {
     background: $table-border-color;
   }
 
-  table tr:first-child th, 
-  table tr:first-child td {
+  table.border tr:first-child th, 
+  table.border tr:first-child td {
     border-top: $border-width $table-border-color solid;
   }
 
-  table tr th:first-child, 
-  table tr td:first-child {
+  table.border tr th:first-child, 
+  table.border tr td:first-child {
     border-left: $border-width $table-border-color solid;
   }
 
-  table tr:first-child th:first-child,
-  table tr:first-child td:first-child {
+  table.border tr:first-child th:first-child,
+  table.border tr:first-child td:first-child {
     border-top-left-radius: $border-radius;
   }
 
-  table tr:first-child th:last-child,
-  table tr:first-child td:last-child {
+  table.border tr:first-child th:last-child,
+  table.border tr:first-child td:last-child {
     border-top-right-radius: $border-radius;
   }
 
-  table tr:last-child th:first-child,
-  table tr:last-child td:first-child {
+  table.border tr:last-child th:first-child,
+  table.border tr:last-child td:first-child {
     border-bottom-left-radius: $border-radius;
   }
 
-  table tr:last-child th:last-child,
-  table tr:last-child td:last-child {
+  table.border tr:last-child th:last-child,
+  table.border tr:last-child td:last-child {
     border-bottom-right-radius: $border-radius;
+  }
+
+  table tr td.left {
+    text-align: left;
+  }
+
+  table tr td.right {
+    text-align: right;
+  }
+
+  table tr td.center {
+    text-align: center;
+  }
+
+  // 罫線なしの表
+
+  $table-cell-gap: 0.3em;
+
+  table.plain {
+    margin: 0rem;
+    padding: 0rem;
+    border-collapse: collapse;
+  }
+
+  table.plain tr td {
+    margin: 0rem 0rem;
+    padding: $table-cell-gap 0em 0em 0em;
+    border: none;
+    white-space: pre-wrap;
+  }
+
+  table.plain tr:first-child td {
+    padding: 0em;
   }
 
 }

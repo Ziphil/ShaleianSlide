@@ -65,6 +65,11 @@ end
 converter.add(["table"], ["slide"]) do |element, _, count|
   this = ""
   this << Tag.build("table") do |this|
+    if element.attribute("border")
+      this["class"] = "border"
+    elsif element.attribute("plain")
+      this["class"] = "plain"
+    end
     this.set_range(element, count)
     this << apply(element, "slide.table", count)
   end
@@ -94,6 +99,16 @@ converter.add(["th", "td"], ["slide.table.tr"]) do |element, _, count|
     end
     if element.attribute("col")
       this["colspan"] = element.attribute("col").to_s
+    end
+    if align = element.attribute("a")
+      case align.to_s
+      when "l"
+        this["class"] = this["class"].to_s + " left"
+      when "r"
+        this["class"] = this["class"].to_s + " right"
+      when "c"
+        this["class"] = this["class"].to_s + " center"
+      end
     end
     this.set_range(element, count)
     this << apply(element, "slide", count)
