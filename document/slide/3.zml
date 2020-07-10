@@ -1,0 +1,47 @@
+\zml?|version="1.0"|>
+\xml?|version="1.0",encoding="UTF-8"|>
+
+\root|number="3"|<
+
+  \title-slide<
+    \title<形容詞と副詞>
+  >
+
+  \slide|number="1"|<
+    \large<
+      \em|c="1"|<形容詞>は\em|c="2"|<名詞>の後に置く
+    >
+    \xl<
+      \li<
+        \sh<
+          {sôdes a tel e}
+          \bpl|c="2"|<\a<名詞>\c<{letyem}>\b<チョコレート>>
+          \bpl|c="1"|<\a<形容詞>\c<{amay}>\b<甘い>>{.}
+        >
+        \ja<
+          私は\em|c="1"|<甘い>\em|c="2"|<チョコレート>を食べた。
+        >
+      >
+    >
+  >
+
+  \slide|number="1"|<
+    \large<
+      \em|c="1"|<形容詞>が 2 つ以上 → \em|c="2"|<名詞>の後に並べる
+    >
+    \xl<
+      \li<
+        \sh<
+          {qonoces a tel e}
+          \bpl|c="2"|<\a<名詞>\c<{talem}>\b<タオル>>
+          \bpl|c="1"|<\a<形容詞>\c<{aqôl}>\b<古い>>
+          \bpl|c="1"|<\a<形容詞>\c<{ajudôl}>\b<汚い>>{.}
+        >
+        \ja<
+          私は\em|c="1"|<古くて>\em|c="1"|<汚い>\em|c="2"|<タオル>を捨てた。
+        >
+      >
+    >
+  >
+
+>
