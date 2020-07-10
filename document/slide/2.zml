@@ -8,6 +8,14 @@
   >
 
   \slide|number="1"|<
+    \large<
+      多くの単語は\em|c="1"|<語形変化>する
+    >
+    \table|plain|<
+      \tr<\td|a="r"|<{hâr}>\td|a="c"|< → >\td<{hâr\em|c="1"|<es>}>>
+      \tr<\td|a="r"|<{may}>\td|a="c"|< → >\td<{\em|c="1"|<adu>may}>>
+      \tr<\td|a="r"|<{vo}>\td|a="c"|< → >\td<{\em|c="1"|<i>vo}>>
+    >
   >
 
   \slide|number="2"|<
@@ -73,7 +81,7 @@
   >
 
   \slide|number="3"|<
-    \table<
+    \table|border|<
       \tr<\th<助詞>\th|col="2"|<意味>>
       \tr<\td<{a}>\td<～が, ～は>\td<主語>>
       \tr<\td<{e}>\td<～を>\td<目的語>>
