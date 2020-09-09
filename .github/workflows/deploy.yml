@@ -6,35 +6,35 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - name: "Checkout"
+      - name: Checkout
         uses: actions/checkout@v1
-      - name: "Cache bundle directory"
+      - name: Cache bundle directory
         uses: actions/cache@v1
         with:
-          path: "vendor/bundle"
-          key: "${{ runner.os }}-bundle-${{ hashFiles('**/gemfile.lock') }}"
-          restore-keys: "${{ runner.os }}-bundle-"
-      - name: "Setup Ruby 2.6"
+          path: vendor/bundle
+          key: ${{ runner.os }}-bundle-${{ hashFiles('**/gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-bundle-
+      - name: Setup Ruby 2.6
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: "2.6.x"
-      - name: "Install bundler"
-        run: "gem install bundler"
-      - name: "Configure bundler for cache"
-        run: "bundle config path vendor/bundle"
-      - name: "Configure bundler platform"
-        run: "bundle config specific_platform x86_64-linux"
-      - name: "Configure sassc"
-        run: "bundle config --local build.sassc --disable-march-tune-native"
-      - name: "Install dependencies"
-        run: "bundle install --gemfile=gemfile"
-      - name: "Generate"
-        run: "bundle exec --gemfile=gemfile ruby 'converter/main.rb'"
-      - name: "Deploy"
+          ruby-version: 2.6.x
+      - name: Install bundler
+        run: gem install bundler
+      - name: Configure bundler for cache
+        run: bundle config path vendor/bundle
+      - name: Configure bundler platform
+        run: bundle config specific_platform x86_64-linux
+      - name: Configure sassc
+        run: bundle config --local build.sassc --disable-march-tune-native
+      - name: Install dependencies
+        run: bundle install --gemfile=gemfile
+      - name: Generate
+        run: bundle exec --gemfile=gemfile ruby 'converter/main.rb'
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: "Ziphil/ShaleianSlidePage"
-          publish_dir: "./out"
-          publish_branch: "master"
-          commit_message: "Deploy"
+          external_repository: Ziphil/ShaleianSlidePage
+          publish_dir: ./out
+          publish_branch: master
+          commit_message: Deploy
