@@ -7,7 +7,5 @@ gem 'bundler', require: [
   'rexml/document'
 ]
 
-gem 'sassc'
-gem 'selenium-webdriver'
-gem 'parallel'
 gem 'zenml'
+gem 'zenml-slide'
