@@ -1,14 +1,11 @@
 # coding: utf-8
 
 
-TEMPLATE = File.read(File.join(BASE_PATH, "template/template.html"))
-
 converter.add(["root"], [""]) do |element|
-  header_string, main_string = "", "", ""
+  this = ""
   number = element.attribute("number").to_s.to_i
-  main_string << apply(element, "root", number)
-  result = TEMPLATE.gsub(/#\{(.*?)\}/){instance_eval($1)}.gsub(/\r/, "")
-  next result
+  this << apply(element, "root", number)
+  next this
 end
 
 converter.add(["x", "xn"], [//]) do |element, scope, *args|
