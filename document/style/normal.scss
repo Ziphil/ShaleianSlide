@@ -11,7 +11,7 @@ div.slide {
     left: 5rem * -1.4142 / 2;
     transform: rotate(-45deg);
     transform-origin: top left;
-    background-color: hsl(205, 100%, 60%);
+    background-color: hsl(map-get($hues, blue), 100%, 60%);
     justify-content: center;
     align-items: flex-end;
     position: absolute;
@@ -44,7 +44,7 @@ div.slide {
     height: 0.8rem;
     top: 0rem;
     left: 0rem;
-    background-color: hsl(205, 100%, 60%);
+    background-color: hsl(map-get($hues, blue), 100%, 60%);
     position: absolute;
     z-index: 0;
   }
